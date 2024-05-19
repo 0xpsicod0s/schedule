@@ -64,10 +64,13 @@ function showNotification() {
         if (currentDay == taskDay && currentMonth == taskMonth && currentYear == taskYear) {
             const { textContent: taskName } = task.querySelector('.task-text');
             if (Notification.permission === 'granted') {
-                new Notification(`Tarefa do dia: ${taskName}`, {
-                    body: `Hoje, no dia ${currentDay}, você tem uma tarefa`,
+                const notification = new Notification(`Tarefa do dia: ${taskName}`, {
+                    body: `Hoje, no dia ${currentDay}, você tem tarefa pendente`,
                     icon: './notificacao.png'
                 });
+                setTimeout(() => {
+                    notification.close();
+                }, 5000);
             }
         }
 
