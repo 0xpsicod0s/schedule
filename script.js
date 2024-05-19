@@ -65,7 +65,8 @@ function showNotification() {
             const { textContent: taskName } = task.querySelector('.task-text');
             if (Notification.permission === 'granted') {
                 new Notification(`Tarefa do dia: ${taskName}`, {
-                    body: `Hoje, no dia ${currentDay}, você tem uma tarefa`
+                    body: `Hoje, no dia ${currentDay}, você tem uma tarefa`,
+                    icon: './notificacao.png'
                 });
             }
         }
